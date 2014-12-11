@@ -10,7 +10,7 @@ It picks up `User-Agent` strings based on [usage statistics](http://www.w3school
 Configuration
 -------------
 
-Turn off the built-in `UserAgentMiddleware` and add `FakeUserAgentMiddleware`:
+Turn off the built-in `UserAgentMiddleware` and add `RandomUserAgentMiddleware`:
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
