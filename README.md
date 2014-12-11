@@ -1,3 +1,6 @@
+[![GitHub version](https://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent.svg)](http://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent)
+[![Requirements Status](https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master)](https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master)
+
 scrapy-fake-useragent
 =====================
 
