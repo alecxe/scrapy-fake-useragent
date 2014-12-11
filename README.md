@@ -4,7 +4,8 @@
 scrapy-fake-useragent
 =====================
 
-Random User-Agent middleware based on [fake-useragent](https://pypi.python.org/pypi/fake-useragent)
+Random User-Agent middleware based on [fake-useragent](https://pypi.python.org/pypi/fake-useragent). 
+It picks up `User-Agent` strings based on [usage statistics](http://www.w3schools.com/browsers/browsers_stats.asp) from a [real world database](http://useragentstring.com/).
 
 Configuration
 -------------
