@@ -1,6 +1,6 @@
-.. image:: https://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent.svg
-     :target: http://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent
-     :alt: GitHub version
+.. image:: https://badge.fury.io/py/scrapy-fake-useragent.svg
+     :target: http://badge.fury.io/py/scrapy-fake-useragent
+     :alt: PyPI version
 
 .. image:: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master
      :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
