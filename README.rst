@@ -26,7 +26,7 @@ In Scrapy >=1.0:
 ::
 
     DOWNLOADER_MIDDLEWARES = {
-        'scrapy.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
     }
 
