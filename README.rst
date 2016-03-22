@@ -19,7 +19,18 @@ Configuration
 -------------
 
 Turn off the built-in ``UserAgentMiddleware`` and add
-``RandomUserAgentMiddleware``:
+``RandomUserAgentMiddleware``.
+
+In Scrapy >=1.0:
+
+::
+
+    DOWNLOADER_MIDDLEWARES = {
+        'scrapy.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+    }
+
+In Scrapy <1.0:
 
 ::
 
