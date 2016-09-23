@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='scrapy-fake-useragent',
-    version='0.0.1',
+    version='0.0.2',
     description='Use a random User-Agent provided by fake-useragent every request',
     long_description=open('README.rst').read(),
     keywords='scrapy proxy web-scraping',
@@ -11,7 +11,6 @@ setup(
     author_email='afanasieffav@gmail.com',
     url='https://github.com/alecxe/scrapy-fake-useragent',
     classifiers=[
-        'Development Status :: 4 - Beta',
         'Framework :: Scrapy',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
