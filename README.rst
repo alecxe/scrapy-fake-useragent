@@ -40,7 +40,7 @@ In Scrapy <1.0:
     }
 
 Usage with `scrapy-proxies`
--------------
+---------------------------
 
 To use with middlewares of random proxy such as `scrapy-proxies <https://github.com/aivarsk/scrapy-proxies>`_, you need:
 
