@@ -11,6 +11,7 @@ setup(
     author_email='afanasieffav@gmail.com',
     url='https://github.com/alecxe/scrapy-fake-useragent',
     classifiers=[
+        'Development Status :: 5 - Production/Stable',
         'Framework :: Scrapy',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
