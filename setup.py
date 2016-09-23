@@ -4,7 +4,6 @@ setup(
     name='scrapy-fake-useragent',
     version='1.0.1',
     description='Use a random User-Agent provided by fake-useragent every request',
-    long_description=open('README.md').read(),
     keywords='scrapy proxy user-agent web-scraping',
     license='New BSD License',
     author="Alexander Afanasyev",
