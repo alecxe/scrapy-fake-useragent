@@ -46,8 +46,7 @@ To use with middlewares of random proxy such as ``scrapy-proxies``, you need:
 
  1. set ``RANDOM_UA_PER_PROXY`` to True to allow switch per proxy,
 
- 2. set priority of ``RandomUserAgentMiddleware`` to be greater than
-``scrapy-proxies``, so that proxy is set before handle UA.
+ 2. set priority of ``RandomUserAgentMiddleware`` to be greater than ``scrapy-proxies``, so that proxy is set before handle UA.
 
 
 .. |GitHub version| image:: https://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent.svg
