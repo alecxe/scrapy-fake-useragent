@@ -1,0 +1,55 @@
+.. image:: https://badge.fury.io/py/scrapy-fake-useragent.svg
+     :target: http://badge.fury.io/py/scrapy-fake-useragent
+     :alt: PyPI version
+
+.. image:: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master
+     :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
+     :alt: Requirements Status
+
+scrapy-fake-useragent
+=====================
+
+Random User-Agent middleware based on
+`fake-useragent <https://pypi.python.org/pypi/fake-useragent>`__. It
+picks up ``User-Agent`` strings based on `usage
+statistics <http://www.w3schools.com/browsers/browsers_stats.asp>`__
+from a `real world database <http://useragentstring.com/>`__.
+
+Configuration
+-------------
+
+Turn off the built-in ``UserAgentMiddleware`` and add
+``RandomUserAgentMiddleware``.
+
+In Scrapy >=1.0:
+
+::
+
+    DOWNLOADER_MIDDLEWARES = {
+        'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+        'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+    }
+
+In Scrapy <1.0:
+
+::
+
+    DOWNLOADER_MIDDLEWARES = {
+        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+    }
+
+Usage with `scrapy-proxies`
+-------------
+
+To use with middlewares of random proxy such as `scrapy-proxies <https://github.com/aivarsk/scrapy-proxies>`_, you need:
+
+1. set ``RANDOM_UA_PER_PROXY`` to True to allow switch per proxy
+
+2. set priority of ``RandomUserAgentMiddleware`` to be greater than ``scrapy-proxies``, so that proxy is set before handle UA
+
+
+.. |GitHub version| image:: https://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent.svg
+   :target: http://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent
+.. |Requirements Status| image:: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master
+   :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
