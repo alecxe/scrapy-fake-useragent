@@ -42,7 +42,7 @@ In Scrapy <1.0:
 Usage with `scrapy-proxies`
 -------------
 
-To use with middlewares of random proxy such as ``scrapy-proxies``, you need:
+To use with middlewares of random proxy such as `scrapy-proxies <https://github.com/aivarsk/scrapy-proxies>`_, you need:
 
 1. set ``RANDOM_UA_PER_PROXY`` to True to allow switch per proxy
 
