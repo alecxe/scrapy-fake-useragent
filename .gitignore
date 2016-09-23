@@ -53,5 +53,5 @@ docs/_build/
 # PyBuilder
 target/
 
-# JetBrans
+# JetBrains
 .idea/
