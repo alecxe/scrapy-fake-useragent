@@ -39,6 +39,8 @@ In Scrapy <1.0:
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
     }
 
+There's a configuration parameter ``RANDOM_UA_TYPE`` defaulting to ``random`` which is passed verbatim to the fake-user-agent. Therefore you can set it to say ``firefox`` to mimic only firefox browsers. Most useful though would be to use ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
+
 Usage with `scrapy-proxies`
 ---------------------------
 
