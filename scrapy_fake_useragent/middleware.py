@@ -9,6 +9,7 @@ class RandomUserAgentMiddleware(object):
 
         self.ua = UserAgent()
         self.per_proxy = crawler.settings.get('RANDOM_UA_PER_PROXY', False)
+        self.ua_type = crawler.settings.get('RANDOM_UA_TYPE', 'random')
         self.proxy2ua = {}
 
     @classmethod
@@ -16,12 +17,16 @@ class RandomUserAgentMiddleware(object):
         return cls(crawler)
 
     def process_request(self, request, spider):
+        def get_ua():
+            '''Gets random UA based on the type setting (random, firefox…)'''
+            return getattr(self.ua, self.ua_type)
+        
         if self.per_proxy:
             proxy = request.meta.get('proxy')
             if proxy not in self.proxy2ua:
-                self.proxy2ua[proxy] = self.ua.random
+                self.proxy2ua[proxy] = get_ua()
                 logger.debug('Assign User-Agent %s to Proxy %s'
                              % (self.proxy2ua[proxy], proxy))
             request.headers.setdefault('User-Agent', self.proxy2ua[proxy])
         else:
-            request.headers.setdefault('User-Agent', self.ua.random)
+            request.headers.setdefault('User-Agent', get_ua())
