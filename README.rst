@@ -30,7 +30,7 @@ Turn off the built-in ``UserAgentMiddleware`` and add
 
 In Scrapy >=1.0:
 
-::
+.. code:: python
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
@@ -39,7 +39,7 @@ In Scrapy >=1.0:
 
 In Scrapy <1.0:
 
-::
+.. code:: python
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
