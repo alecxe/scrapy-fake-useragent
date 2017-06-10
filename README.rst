@@ -15,6 +15,13 @@ picks up ``User-Agent`` strings based on `usage
 statistics <http://www.w3schools.com/browsers/browsers_stats.asp>`__
 from a `real world database <http://useragentstring.com/>`__.
 
+Installation
+-------------
+
+The simplest way is to install it via `pip`:
+
+    pip install scrapy-fake-useragent
+
 Configuration
 -------------
 
