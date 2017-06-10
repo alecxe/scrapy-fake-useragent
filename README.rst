@@ -18,12 +18,18 @@ from a `real world database <http://useragentstring.com/>`__.
 Configuration
 -------------
 
+Install the package using pip:
+
+.. code:: bash
+
+     pip install scrapy-fake-useragent
+
 Turn off the built-in ``UserAgentMiddleware`` and add
 ``RandomUserAgentMiddleware``.
 
 In Scrapy >=1.0:
 
-::
+.. code:: python
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
@@ -32,7 +38,7 @@ In Scrapy >=1.0:
 
 In Scrapy <1.0:
 
-::
+.. code:: python
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
