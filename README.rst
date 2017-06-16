@@ -67,7 +67,7 @@ To use with middlewares of random proxy such as `scrapy-proxies <https://github.
    :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
 
 Configuring Fake-UserAgent fallback
-----------------------------------
+-----------------------------------
 
 There's a configuration parameter ``FAKEUSERAGENT_FALLBACK`` defaulting to
 ``None``. You can set it to a string value, for example ``Mozilla`` or
