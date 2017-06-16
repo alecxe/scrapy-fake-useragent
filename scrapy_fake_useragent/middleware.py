@@ -7,7 +7,8 @@ class RandomUserAgentMiddleware(object):
     def __init__(self, crawler):
         super(RandomUserAgentMiddleware, self).__init__()
 
-        self.ua = UserAgent()
+        fallback = crawler.settings.get('FAKEUSERAGENT_FALLBACK', None)
+        self.ua = UserAgent(fallback=fallback)
         self.per_proxy = crawler.settings.get('RANDOM_UA_PER_PROXY', False)
         self.ua_type = crawler.settings.get('RANDOM_UA_TYPE', 'random')
         self.proxy2ua = {}
