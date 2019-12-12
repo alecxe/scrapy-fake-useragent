@@ -25,8 +25,8 @@ The simplest way is to install it via `pip`:
 Configuration
 -------------
 
-Turn off the built-in ``UserAgentMiddleware`` and add
-``RandomUserAgentMiddleware``.
+Turn off the built-in ``UserAgentMiddleware`` and ``RetryMiddleware`` and add
+``RandomUserAgentMiddleware`` and ``RetryUserAgentMiddleware``.
 
 In Scrapy >=1.0:
 
@@ -34,7 +34,9 @@ In Scrapy >=1.0:
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+	   'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+	   'scrapy_fake_useragent.middlewares.RetryUserAgentMiddleware': 401,
     }
 
 In Scrapy <1.0:
