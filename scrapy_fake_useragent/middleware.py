@@ -2,8 +2,7 @@ import logging
 from fake_useragent import UserAgent
 
 from scrapy import signals
-from scrapy.downloadermiddlewares.retry import *
-from scrapy.spidermiddlewares.httperror import *
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
 
 logger = logging.getLogger(__name__)
 
