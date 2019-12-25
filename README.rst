@@ -47,7 +47,7 @@ In Scrapy >=1.0:
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
         'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-        'scrapy_fake_useragent.middlewares.RetryUserAgentMiddleware': 401,
+        'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
     }
 
 In Scrapy <1.0:
@@ -56,7 +56,9 @@ In Scrapy <1.0:
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'scrapy.contrib.downloadermiddleware.retry.RetryMiddleware': None,
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
+        'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
     }
 
 Configuring User-Agent type
@@ -85,4 +87,4 @@ Configuring Fake-UserAgent fallback
 There's a configuration parameter ``FAKEUSERAGENT_FALLBACK`` defaulting to
 ``None``. You can set it to a string value, for example ``Mozilla`` or
 ``Your favorite browser``, this configuration can completely disable any
-annoying exception.
+annoying exception that may happen if `fake-useragent` failed to retrieve a random UA string.
