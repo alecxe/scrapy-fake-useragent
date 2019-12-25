@@ -1,5 +1,4 @@
-import unittest
-
+import pytest
 from scrapy import Request
 
 from scrapy.spiders import Spider
@@ -8,18 +7,33 @@ from scrapy.utils.test import get_crawler
 from scrapy_fake_useragent.middleware import RandomUserAgentMiddleware
 
 
-class RetryTest(unittest.TestCase):
-    def setUp(self):
-        self.crawler = get_crawler(Spider,
-                                   settings_dict={
-                                       'FAKEUSERAGENT_FALLBACK': 'firefox'
-                                   })
-        self.spider = self.crawler._create_spider('foo')
-        self.mw = RandomUserAgentMiddleware.from_crawler(self.crawler)
+@pytest.fixture
+def middleware_request(request):
+    crawler = get_crawler(Spider, settings_dict=request.param)
+    spider = crawler._create_spider('foo')
+    mw = RandomUserAgentMiddleware.from_crawler(crawler)
 
-    def test_random_ua_set(self):
-        req = Request('http://www.scrapytest.org/')
+    req = Request('http://www.scrapytest.org/')
 
-        self.mw.process_request(req, self.spider)
+    mw.process_request(req, spider)
 
-        assert 'User-Agent' in req.headers
+    yield req
+
+
+@pytest.mark.parametrize(
+    'middleware_request',
+    ({'FAKEUSERAGENT_FALLBACK': 'firefox'}, ),
+    indirect=True
+)
+def test_random_ua_set(middleware_request):
+    assert 'User-Agent' in middleware_request.headers
+
+
+@pytest.mark.parametrize(
+    'middleware_request',
+    ({'FAKEUSERAGENT_FALLBACK': 'firefox',
+      'RANDOM_UA_PER_PROXY': True}, ),
+    indirect=True
+)
+def test_random_ua_per_proxy_set(middleware_request):
+    assert 'User-Agent' in middleware_request.headers
