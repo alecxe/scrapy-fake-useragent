@@ -42,9 +42,9 @@ In Scrapy >=1.0:
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-	   'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+	    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-	   'scrapy_fake_useragent.middlewares.RetryUserAgentMiddleware': 401,
+	    'scrapy_fake_useragent.middlewares.RetryUserAgentMiddleware': 401,
     }
 
 In Scrapy <1.0:

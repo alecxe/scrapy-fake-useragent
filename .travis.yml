@@ -21,7 +21,14 @@ matrix:
         env: TOXENV=flake8
 
 install:
-  - pip install tox
+  - pip install -U setuptools
+  - pip install -U pip
+  - pip install -U wheel
+  - pip install -U tox
 
 script:
   - tox
+
+after_success:
+  - pip install codecov
+  - codecov

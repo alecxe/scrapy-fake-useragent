@@ -1,5 +1,6 @@
 -r requirements.txt
 flake8
 pytest
+pytest-cov
 scrapy
 tox
