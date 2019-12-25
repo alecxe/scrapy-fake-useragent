@@ -1,6 +1,9 @@
 .. image:: https://travis-ci.org/alecxe/scrapy-fake-useragent.svg?branch=master
     :target: https://travis-ci.org/alecxe/scrapy-fake-useragent
 
+.. image:: https://codecov.io/gh/alecxe/scrapy-fake-useragent/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/alecxe/scrapy-fake-useragent
+
 .. image:: https://img.shields.io/pypi/pyversions/scrapy-fake-useragent.svg
      :target: https://pypi.python.org/pypi/scrapy-fake-useragent
      :alt: PyPI version
@@ -42,9 +45,9 @@ In Scrapy >=1.0:
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-	    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+        'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
         'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 400,
-	    'scrapy_fake_useragent.middlewares.RetryUserAgentMiddleware': 401,
+        'scrapy_fake_useragent.middlewares.RetryUserAgentMiddleware': 401,
     }
 
 In Scrapy <1.0:
