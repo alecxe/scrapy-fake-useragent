@@ -1,3 +1,10 @@
+.. image:: https://travis-ci.org/alecxe/scrapy-fake-useragent.svg?branch=master
+    :target: https://travis-ci.org/alecxe/scrapy-fake-useragent
+
+.. image:: https://img.shields.io/pypi/pyversions/scrapy-fake-useragent.svg
+     :target: https://pypi.python.org/pypi/scrapy-fake-useragent
+     :alt: PyPI version
+
 .. image:: https://badge.fury.io/py/scrapy-fake-useragent.svg
      :target: http://badge.fury.io/py/scrapy-fake-useragent
      :alt: PyPI version
@@ -5,6 +12,7 @@
 .. image:: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master
      :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
      :alt: Requirements Status
+
 
 scrapy-fake-useragent
 =====================
