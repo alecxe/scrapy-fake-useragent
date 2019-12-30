@@ -3,6 +3,7 @@ from fake_useragent import UserAgent
 
 from scrapy import signals
 from scrapy.downloadermiddlewares.retry import RetryMiddleware
+from scrapy.utils.response import response_status_message
 
 logger = logging.getLogger(__name__)
 
