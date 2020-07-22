@@ -1,1 +1,2 @@
 fake-useragent
+faker

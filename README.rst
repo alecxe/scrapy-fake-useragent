@@ -20,11 +20,13 @@
 scrapy-fake-useragent
 =====================
 
-Random User-Agent middleware based on
-`fake-useragent <https://pypi.python.org/pypi/fake-useragent>`__. It
-picks up ``User-Agent`` strings based on `usage
-statistics <http://www.w3schools.com/browsers/browsers_stats.asp>`__
-from a `real world database <http://useragentstring.com/>`__.
+Random User-Agent middleware for Scrapy scraping framework based on
+`fake-useragent <https://pypi.python.org/pypi/fake-useragent>`__, which picks up ``User-Agent`` strings 
+based on `usage statistics <http://www.w3schools.com/browsers/browsers_stats.asp>`__
+from a `real world database <http://useragentstring.com/>`__ and 
+`fake-useragent <https://faker.readthedocs.io/en/stable/providers/faker.providers.user_agent.html>`__ which generates
+random ``User-Agent`` strings from a combination of possibilities. It also has the possibility of extending the
+capabilities of the middleware, by adding your own providers.
 
 Installation
 -------------
@@ -61,10 +63,51 @@ In Scrapy <1.0:
         'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
     }
 
+Enabling providers
+---------------------------
+
+Each provider is enabled individually, and used in the order they are defined.
+In case a provider fails execute (it can happen to fake-useragent because of it's dependancy
+with an online service), the next one will be used.
+
+In ``settings.py``:
+
+.. code:: python
+
+    FAKEUSERAGENT_PROVIDERS = [
+        'scrapy_fake_useragent.providers.FakeUserAgent',
+        'scrapy_fake_useragent.providers.Faker',
+        'scrapy_fake_useragent.providers.FixedUserAgent',
+        'mypackage.providers.CustomProvider'
+    ]
+
+
 Configuring User-Agent type
 ---------------------------
 
-There's a configuration parameter ``RANDOM_UA_TYPE`` defaulting to ``random`` which is passed verbatim to the fake-user-agent. Therefore you can set it to say ``firefox`` to mimic only firefox browsers. Most useful though would be to use ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
+This middleware comes with two already pre-implemented User-Agent providers.
+The configuration for these providers is independant and also specific for the underlying libraries.
+For understanding which are the values you can set for each provider, refer to the libraries cited before.
+
+### fake-useragent
+Parameter: ``FAKE_USERAGENT_RANDOM_UA_TYPE`` defaulting to ``random``
+Other options, as example: 
+ * ``firefox`` to mimic only firefox browsers
+ * ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
+
+You can also set the ``FAKEUSERAGENT_FALLBACK`` option, which is a ``fake-useragent`` specific fallback.
+What it does is, if the selected ``FAKE_USERAGENT_RANDOM_UA_TYPE`` fails to retrieve a UA, it will use
+the type set in ``FAKEUSERAGENT_FALLBACK``.
+
+### Faker
+Parameter: ``FAKER_RANDOM_UA_TYPE`` defaulting to ``user_agent`` which is the way of selecting totally random User-Agents values.
+Other options, as example:
+ * ``chrome``
+ * ``firefox``
+
+### FixedUserAgent
+
+It also comes with a fixed provider (only provides one user agent), reusing the Scrapy's config ``USER_AGENT``.
 
 Usage with `scrapy-proxies`
 ---------------------------
@@ -80,11 +123,3 @@ To use with middlewares of random proxy such as `scrapy-proxies <https://github.
    :target: http://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent
 .. |Requirements Status| image:: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master
    :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
-
-Configuring Fake-UserAgent fallback
------------------------------------
-
-There's a configuration parameter ``FAKEUSERAGENT_FALLBACK`` defaulting to
-``None``. You can set it to a string value, for example ``Mozilla`` or
-``Your favorite browser``, this configuration can completely disable any
-annoying exception that may happen if `fake-useragent` failed to retrieve a random UA string.
