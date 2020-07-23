@@ -23,9 +23,11 @@ scrapy-fake-useragent
 Random User-Agent middleware for Scrapy scraping framework based on
 `fake-useragent <https://pypi.python.org/pypi/fake-useragent>`__, which picks up ``User-Agent`` strings 
 based on `usage statistics <http://www.w3schools.com/browsers/browsers_stats.asp>`__
-from a `real world database <http://useragentstring.com/>`__ and 
-`fake-useragent <https://faker.readthedocs.io/en/stable/providers/faker.providers.user_agent.html>`__ which generates
-random ``User-Agent`` strings from a combination of possibilities. It also has the possibility of extending the
+from a `real world database <http://useragentstring.com/>`__, but also has the option to configure a generator
+of fake UA strings, as a backup, powered by 
+`Faker <https://faker.readthedocs.io/en/stable/providers/faker.providers.user_agent.html>`__.
+
+It also has the possibility of extending the
 capabilities of the middleware, by adding your own providers.
 
 Installation
@@ -67,7 +69,7 @@ Enabling providers
 ---------------------------
 
 Each provider is enabled individually, and used in the order they are defined.
-In case a provider fails execute (it can happen to fake-useragent because of it's dependancy
+In case a provider fails execute (for instance, it can `happen <https://github.com/hellysmile/fake-useragent/issues/99>`__ to fake-useragent because of it's dependency
 with an online service), the next one will be used.
 
 In ``settings.py``:
@@ -86,7 +88,7 @@ Configuring User-Agent type
 ---------------------------
 
 This middleware comes with two already pre-implemented User-Agent providers.
-The configuration for these providers is independant and also specific for the underlying libraries.
+The configuration for these providers is independent and also specific for the underlying libraries.
 For understanding which are the values you can set for each provider, refer to the libraries cited before.
 
 ### fake-useragent

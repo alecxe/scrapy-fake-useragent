@@ -15,8 +15,9 @@ class RandomUserAgentBase:
     def _get_provider(self, crawler):
         self.providers_paths = crawler.setting.get('FAKEUSERAGENT_PROVIDERS', None)
 
-        assert((self.providers_paths is not None) and len(self.providers_paths) > 0,
-               'FAKEUSERAGENT_PROVIDERS option in setting.py must be defined and have at least one provider')
+        # To keep compatibility if the user didn't set a provider, fake-useragent will be used
+        if not self.providers_paths:
+            self.providers_paths = ['scrapy_fake_useragent.providers.FakeUserAgent']
 
         provider = None
         # We try to use any of the user agent providers specified in the config (priority order)
@@ -30,7 +31,7 @@ class RandomUserAgentBase:
         if not provider:
             # If none of them work, we use the FixedUserAgent provider:
             # (default provider that return a single useragent, like scrapy does, specified in USER_AGENT setting)
-            provider = load_object('scrapy_fake_useragent.providers.FixedUserAgent')(crawler, fallback)
+            provider = load_object('scrapy_fake_useragent.providers.FixedUserAgent')(crawler)
 
         return provider
 
