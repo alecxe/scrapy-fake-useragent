@@ -19,12 +19,12 @@ class BaseProvider:
         raise NotImplementedError
 
 
-class FixedUserAgent(BaseProvider):
+class FixedUserAgentProvider(BaseProvider):
     '''
     Provided a fixed UA string, specified in Scrapy's settings.py
     '''
     def __init__(self, settings):
-        super().__init__(settings)
+        BaseProvider.__init__(self, settings)
 
         fixed_ua = settings.get('USER_AGENT', '')
 
@@ -35,13 +35,13 @@ class FixedUserAgent(BaseProvider):
         return self._ua
 
 
-class FakeUserAgent(BaseProvider):
+class FakeUserAgentProvider(BaseProvider):
     '''
     Provides a random, real-life set of UA strings, powered by the fake_useragent library
     '''
     DEFAULT_UA_TYPE = 'random'
     def __init__(self, settings):
-        super().__init__(settings)
+        BaseProvider.__init__(self, settings)
 
         self._ua_type = settings.get('FAKE_USERAGENT_RANDOM_UA_TYPE', self.DEFAULT_UA_TYPE)
 
@@ -50,18 +50,19 @@ class FakeUserAgent(BaseProvider):
 
     def get_random_ua(self):
         try:
-            return getattr(self._ua, self._ua_type)()
+            return getattr(self._ua, self._ua_type)
         except AttributeError:
             logger.debug("Couldn't retrieve '%s' UA type. Using default: '%s'", self._ua_type, self.DEFAULT_UA_TYPE)
+            return getattr(self._ua, self.DEFAULT_UA_TYPE)
 
 
-class Faker(BaseProvider):
+class FakerProvider(BaseProvider):
     '''
     Provides a random set of UA strings, powered by the Faker library
     '''
     DEFAULT_UA_TYPE = 'user_agent'
     def __init__(self, settings):
-        super().__init__(settings)
+        BaseProvider.__init__(self, settings)
 
         self._ua = Faker()
         self._ua_type = settings.get('FAKER_RANDOM_UA_TYPE', self.DEFAULT_UA_TYPE)
@@ -71,3 +72,4 @@ class Faker(BaseProvider):
             return getattr(self._ua, self._ua_type)()
         except AttributeError:
             logger.debug("Couldn't retrieve '%s' UA type. Using default: '%s'", self._ua_type, self.DEFAULT_UA_TYPE)
+            return getattr(self._ua, self.DEFAULT_UA_TYPE)()

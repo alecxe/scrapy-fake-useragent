@@ -6,6 +6,7 @@ from scrapy.utils.misc import load_object
 
 logger = logging.getLogger(__name__)
 
+
 class RandomUserAgentBase:
     def __init__(self, crawler):
         self._ua_provider = self._get_provider(crawler)
@@ -13,32 +14,33 @@ class RandomUserAgentBase:
         self._proxy2ua = {}
 
     def _get_provider(self, crawler):
-        self.providers_paths = crawler.setting.get('FAKEUSERAGENT_PROVIDERS', None)
+        self.providers_paths = crawler.settings.get('FAKEUSERAGENT_PROVIDERS', None)
 
         # To keep compatibility if the user didn't set a provider, fake-useragent will be used
         if not self.providers_paths:
-            self.providers_paths = ['scrapy_fake_useragent.providers.FakeUserAgent']
+            self.providers_paths = ['scrapy_fake_useragent.providers.FakeUserAgentProvider']
 
         provider = None
         # We try to use any of the user agent providers specified in the config (priority order)
         for provider_path in self.providers_paths:
             try:
-                provider = load_object(provider_path)(crawler)
-                logger.debug('Using %s as the User-Agent provider', provider_path)
+                provider = load_object(provider_path)(crawler.settings)
             except:    # Provider can throw anything
                 logger.debug('Error on getting User-Agent provider: %s', provider_path)
 
         if not provider:
             # If none of them work, we use the FixedUserAgent provider:
             # (default provider that return a single useragent, like scrapy does, specified in USER_AGENT setting)
-            provider = load_object('scrapy_fake_useragent.providers.FixedUserAgent')(crawler)
+            fixed_provider_path = 'scrapy_fake_useragent.providers.FixedUserAgentProvider'
+            provider = load_object(fixed_provider_path)(crawler.settings)
 
+        logger.debug('Using %s as the User-Agent provider', type(provider))
         return provider
 
 
 class RandomUserAgentMiddleware(RandomUserAgentBase):
     def __init__(self, crawler):
-        super().__init__(crawler)
+        RandomUserAgentBase.__init__(self, crawler)
 
     @classmethod
     def from_crawler(cls, crawler):

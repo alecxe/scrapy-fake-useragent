@@ -77,9 +77,9 @@ In ``settings.py``:
 .. code:: python
 
     FAKEUSERAGENT_PROVIDERS = [
-        'scrapy_fake_useragent.providers.FakeUserAgent',
-        'scrapy_fake_useragent.providers.Faker',
-        'scrapy_fake_useragent.providers.FixedUserAgent',
+        'scrapy_fake_useragent.providers.FakeUserAgentProvider',
+        'scrapy_fake_useragent.providers.FakerProvider',
+        'scrapy_fake_useragent.providers.FixedUserAgentProvider',
         'mypackage.providers.CustomProvider'
     ]
 
