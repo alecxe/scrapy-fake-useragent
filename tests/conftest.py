@@ -13,8 +13,13 @@ def fake_useragent_always_loads(mocker):
     """Mock fake useragent to allow the fake useragent provider to load when testing."""
     fake_useragent_load = mocker.patch.object(fake_useragent.utils, 'load')
     fake_useragent_load.return_value = {
-        'browsers': {'firefox': ['Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0']},
-        'randomize': ['Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0']
+        'browsers': {'firefox': [
+                'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
+            ]
+        },
+        'randomize': [
+            'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
+        ]
     }
 
 

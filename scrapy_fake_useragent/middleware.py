@@ -30,12 +30,13 @@ class RandomUserAgentBase:
             try:
                 provider = load_object(provider_path)(crawler.settings)
                 logger.debug("Loaded User-Agent provider: %s", provider_path)
-            except:    # Provider can throw anything
+            except Exception:  # Provider can throw anything
                 logger.info('Error loading User-Agent provider: %s', provider_path)
 
         if not provider:
             # If none of them work, we use the FixedUserAgent provider:
-            # (default provider that return a single useragent, like Scrapy does, specified in USER_AGENT setting)
+            # (default provider that return a single useragent,
+            # like Scrapy does, specified in USER_AGENT setting)
             logger.info('Unable to load any of the User-Agent providers')
             provider = load_object(FIXED_PROVIDER_PATH)(crawler.settings)
 
