@@ -8,7 +8,7 @@ from scrapy.utils.test import get_crawler
 from scrapy_fake_useragent.middleware import RandomUserAgentMiddleware, RetryUserAgentMiddleware
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def fake_useragent_always_loads(mocker):
     """Mock fake useragent to allow the fake useragent provider to load when testing."""
     fake_useragent_load = mocker.patch.object(fake_useragent.utils, 'load')
