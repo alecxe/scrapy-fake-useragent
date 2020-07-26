@@ -7,6 +7,10 @@ from scrapy.utils.misc import load_object
 logger = logging.getLogger(__name__)
 
 
+FIXED_PROVIDER_PATH = 'scrapy_fake_useragent.providers.FixedUserAgentProvider'
+FAKE_USERAGENT_PROVIDER_PATH = 'scrapy_fake_useragent.providers.FakeUserAgentProvider'
+
+
 class RandomUserAgentBase:
     def __init__(self, crawler):
         self._ua_provider = self._get_provider(crawler)
@@ -18,23 +22,24 @@ class RandomUserAgentBase:
 
         # To keep compatibility if the user didn't set a provider, fake-useragent will be used
         if not self.providers_paths:
-            self.providers_paths = ['scrapy_fake_useragent.providers.FakeUserAgentProvider']
+            self.providers_paths = [FAKE_USERAGENT_PROVIDER_PATH]
 
         provider = None
         # We try to use any of the user agent providers specified in the config (priority order)
         for provider_path in self.providers_paths:
             try:
                 provider = load_object(provider_path)(crawler.settings)
+                logger.debug("Loaded User-Agent provider: %s", provider_path)
             except:    # Provider can throw anything
-                logger.debug('Error on getting User-Agent provider: %s', provider_path)
+                logger.info('Error loading User-Agent provider: %s', provider_path)
 
         if not provider:
             # If none of them work, we use the FixedUserAgent provider:
-            # (default provider that return a single useragent, like scrapy does, specified in USER_AGENT setting)
-            fixed_provider_path = 'scrapy_fake_useragent.providers.FixedUserAgentProvider'
-            provider = load_object(fixed_provider_path)(crawler.settings)
+            # (default provider that return a single useragent, like Scrapy does, specified in USER_AGENT setting)
+            logger.info('Unable to load any of the User-Agent providers')
+            provider = load_object(FIXED_PROVIDER_PATH)(crawler.settings)
 
-        logger.debug('Using %s as the User-Agent provider', type(provider))
+        logger.info("Using '%s' as the User-Agent provider", type(provider))
         return provider
 
 
