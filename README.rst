@@ -68,11 +68,21 @@ In Scrapy <1.0:
 Enabling providers
 ---------------------------
 
+The package comes with a thin abstraction layer of User-Agent providers, which for purposes of backwards compatibility defaults to:
+
+.. code:: python
+
+    FAKEUSERAGENT_PROVIDERS = [
+        'scrapy_fake_useragent.providers.FakeUserAgentProvider'
+    ]
+
+The package has also `FakerProvider` (powered by `Faker library <https://faker.readthedocs.io/>`) and `FixedUserAgentProvider` implemented and available for use if needed.
+
 Each provider is enabled individually, and used in the order they are defined.
 In case a provider fails execute (for instance, it can `happen <https://github.com/hellysmile/fake-useragent/issues/99>`__ to fake-useragent because of it's dependency
 with an online service), the next one will be used.
 
-In ``settings.py``:
+Example of what `FAKEUSERAGENT_PROVIDERS` setting may look like in your case:
 
 .. code:: python
 
@@ -84,32 +94,36 @@ In ``settings.py``:
     ]
 
 
-Configuring User-Agent type
+Configuring fake-useragent
 ---------------------------
 
-This middleware comes with two already pre-implemented User-Agent providers.
-The configuration for these providers is independent and also specific for the underlying libraries.
-For understanding which are the values you can set for each provider, refer to the libraries cited before.
+Parameter: ``FAKE_USERAGENT_RANDOM_UA_TYPE`` defaulting to ``random``.
 
-### fake-useragent
-Parameter: ``FAKE_USERAGENT_RANDOM_UA_TYPE`` defaulting to ``random``
 Other options, as example: 
  * ``firefox`` to mimic only firefox browsers
  * ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
 
-You can also set the ``FAKEUSERAGENT_FALLBACK`` option, which is a ``fake-useragent`` specific fallback.
+You can also set the ``FAKEUSERAGENT_FALLBACK`` option, which is a ``fake-useragent`` specific fallback. For example:
+
+.. code:: python
+
+    FAKEUSERAGENT_FALLBACK = 'Mozilla/5.0 (Android; Mobile; rv:40.0)'
+
 What it does is, if the selected ``FAKE_USERAGENT_RANDOM_UA_TYPE`` fails to retrieve a UA, it will use
 the type set in ``FAKEUSERAGENT_FALLBACK``.
 
-### Faker
+Configuring faker
+---------------------------
+
 Parameter: ``FAKER_RANDOM_UA_TYPE`` defaulting to ``user_agent`` which is the way of selecting totally random User-Agents values.
 Other options, as example:
  * ``chrome``
  * ``firefox``
 
-### FixedUserAgent
+Configuring FixedUserAgent
+---------------------------
 
-It also comes with a fixed provider (only provides one user agent), reusing the Scrapy's config ``USER_AGENT``.
+It also comes with a fixed provider (only provides one user agent), reusing the Scrapy's default ``USER_AGENT`` setting value.
 
 Usage with `scrapy-proxies`
 ---------------------------
