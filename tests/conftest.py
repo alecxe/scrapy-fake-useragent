@@ -16,8 +16,8 @@ def fake_useragent_always_loads(mocker):
         'browsers': {'firefox': [
             'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
         ]},
-        'randomize': {'firefox':
-            'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
+        'randomize': {
+            'firefox': 'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
         }
     }
 
