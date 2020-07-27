@@ -65,7 +65,7 @@ In Scrapy <1.0:
         'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
     }
 
-Recommended setting:
+Recommended setting (1.3.0+):
 
 .. code:: python
 
