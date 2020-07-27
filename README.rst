@@ -65,6 +65,21 @@ In Scrapy <1.0:
         'scrapy_fake_useragent.middleware.RetryUserAgentMiddleware': 401,
     }
 
+Recommended setting to work around `fake-useragent` occassional issues with retrieving User-Agents from useragentstring.com:
+
+.. code:: python
+
+    FAKEUSERAGENT_PROVIDERS = [
+        'scrapy_fake_useragent.providers.FakeUserAgentProvider',
+        'scrapy_fake_useragent.providers.FakerProvider',
+        'scrapy_fake_useragent.providers.FixedUserAgentProvider',
+    ]
+
+----------------
+
+Additional configuration information
+=====================
+
 Enabling providers
 ---------------------------
 
