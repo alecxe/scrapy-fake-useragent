@@ -76,7 +76,7 @@ The package comes with a thin abstraction layer of User-Agent providers, which f
         'scrapy_fake_useragent.providers.FakeUserAgentProvider'
     ]
 
-The package has also `FakerProvider` (powered by `Faker library <https://faker.readthedocs.io/>`) and `FixedUserAgentProvider` implemented and available for use if needed.
+The package has also `FakerProvider` (powered by `Faker library <https://faker.readthedocs.io/>`__) and `FixedUserAgentProvider` implemented and available for use if needed.
 
 Each provider is enabled individually, and used in the order they are defined.
 In case a provider fails execute (for instance, it can `happen <https://github.com/hellysmile/fake-useragent/issues/99>`__ to fake-useragent because of it's dependency
