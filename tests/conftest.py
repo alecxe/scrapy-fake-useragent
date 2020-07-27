@@ -1,17 +1,17 @@
-import fake_useragent
 import pytest
 from scrapy import Request
 from scrapy.http import Response
 from scrapy.spiders import Spider
 from scrapy.utils.test import get_crawler
 
+from scrapy_fake_useragent import providers
 from scrapy_fake_useragent.middleware import RandomUserAgentMiddleware, RetryUserAgentMiddleware
 
 
 @pytest.fixture(autouse=True)
 def fake_useragent_always_loads(mocker):
     """Mock fake useragent to allow the fake useragent provider to load when testing."""
-    fake_useragent_load = mocker.patch.object(fake_useragent.utils, 'load')
+    fake_useragent_load = mocker.patch.object(providers.fake_useragent.utils, 'load')
     fake_useragent_load.return_value = {
         'browsers': {'firefox': [
                 'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0'
