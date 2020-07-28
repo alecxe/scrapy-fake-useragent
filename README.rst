@@ -79,7 +79,7 @@ Recommended setting (1.3.0+):
 ----------------
 
 Additional configuration information
-=====================
+====================================
 
 Enabling providers
 ---------------------------
@@ -116,8 +116,9 @@ Configuring fake-useragent
 Parameter: ``FAKE_USERAGENT_RANDOM_UA_TYPE`` defaulting to ``random``.
 
 Other options, as example: 
- * ``firefox`` to mimic only firefox browsers
- * ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
+
+* ``firefox`` to mimic only firefox browsers
+* ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
 
 You can also set the ``FAKEUSERAGENT_FALLBACK`` option, which is a ``fake-useragent`` specific fallback. For example:
 
@@ -133,8 +134,9 @@ Configuring faker
 
 Parameter: ``FAKER_RANDOM_UA_TYPE`` defaulting to ``user_agent`` which is the way of selecting totally random User-Agents values.
 Other options, as example:
- * ``chrome``
- * ``firefox``
+
+* ``chrome``
+* ``firefox``
 
 Configuring FixedUserAgent
 ---------------------------
