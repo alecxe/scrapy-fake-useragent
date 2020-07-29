@@ -16,6 +16,9 @@
      :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
      :alt: Requirements Status
 
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+     :target: https://github.com/alecxe/scrapy-fake-useragent/blob/master/LICENSE.txt
+     :alt: Package license
 
 scrapy-fake-useragent
 =====================
@@ -161,7 +164,6 @@ License
 ----------
 
 The package is under MIT license. Please see `LICENSE`_.
-
 
 .. |GitHub version| image:: https://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent.svg
    :target: http://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent

@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='scrapy-fake-useragent',
 
-    version='1.4.0',
+    version='1.4.1',
 
     description='Use a random User-Agent provided by fake-useragent '
                 'for every request',
@@ -18,12 +18,13 @@ setup(
     maintainer_email='me@alecxe.me',
 
     url='https://github.com/alecxe/scrapy-fake-useragent',
+    python_requires=">=3.5",
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Framework :: Scrapy',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.5",
