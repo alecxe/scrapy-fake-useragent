@@ -30,6 +30,11 @@ of fake UA strings, as a backup, powered by
 It also has the possibility of extending the
 capabilities of the middleware, by adding your own providers.
 
+Changes
+----------
+
+Please see `CHANGELOG`_.
+
 Installation
 -------------
 
@@ -152,8 +157,15 @@ To use with middlewares of random proxy such as `scrapy-proxies <https://github.
 
 2. set priority of ``RandomUserAgentMiddleware`` to be greater than ``scrapy-proxies``, so that proxy is set before handle UA
 
+License
+----------
+
+The package is under MIT license. Please see `LICENSE`_.
+
 
 .. |GitHub version| image:: https://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent.svg
    :target: http://badge.fury.io/gh/alecxe%2Fscrapy-fake-useragent
 .. |Requirements Status| image:: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements.svg?branch=master
    :target: https://requires.io/github/alecxe/scrapy-fake-useragent/requirements/?branch=master
+.. _LICENSE: https://github.com/alecxe/scrapy-fake-useragent/blob/master/LICENSE.txt
+.. _CHANGELOG: https://github.com/alecxe/scrapy-fake-useragent/blob/master/CHANGELOG.rst

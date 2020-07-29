@@ -1,2 +1,2 @@
 fake-useragent
-faker==2.0.3  # to maintain 3.4 compatibility
+faker>=4.1.1
