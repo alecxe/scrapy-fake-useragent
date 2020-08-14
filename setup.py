@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='scrapy-fake-useragent',
 
-    version='1.4.2',
+    version='1.4.3',
 
     description='Use a random User-Agent provided by fake-useragent '
                 'for every request',
