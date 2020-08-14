@@ -37,6 +37,7 @@ setup(
         'scrapy_fake_useragent',
     ],
     install_requires=[
-        'fake-useragent'
+        'fake-useragent',
+        'faker'
     ],
 )
