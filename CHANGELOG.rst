@@ -1,10 +1,15 @@
 Changelog
 =========
 
+`1.4.2 - 13-August-2020 <https://pypi.org/project/scrapy-fake-useragent/1.4.2/>`__
+----------------------------------------------------------------------------------
+
+* Added missing `faker` to `install_requires`
+
 `1.4.1 - 29-July-2020 <https://pypi.org/project/scrapy-fake-useragent/1.4.1/>`__
 ----------------------------------------------------------------------------------
 
-* Proper setup classifiers, added python_requires
+* Proper setup classifiers, added `python_requires`
 
 `1.4.0 - 29-July-2020 <https://pypi.org/project/scrapy-fake-useragent/1.4.0/>`__
 ----------------------------------------------------------------------------------
