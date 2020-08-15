@@ -30,6 +30,7 @@ class RandomUserAgentBase:
             try:
                 provider = load_object(provider_path)(crawler.settings)
                 logger.debug("Loaded User-Agent provider: %s", provider_path)
+                break
             except Exception:  # Provider can throw anything
                 logger.info('Error loading User-Agent provider: %s', provider_path)
 
