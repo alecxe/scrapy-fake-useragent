@@ -1,7 +1,12 @@
 Changelog
 =========
 
-`1.4.3 - 13-August-2020 <https://pypi.org/project/scrapy-fake-useragent/1.4.2/>`__
+`1.4.4 - 15-August-2020 <https://pypi.org/project/scrapy-fake-useragent/1.4.4/>`__
+----------------------------------------------------------------------------------
+
+* #30: use first successfully loaded provider
+
+`1.4.3 - 13-August-2020 <https://pypi.org/project/scrapy-fake-useragent/1.4.3/>`__
 ----------------------------------------------------------------------------------
 
 * Re-built and re-uploaded as I forgot the non-wheel upload to PyPI
