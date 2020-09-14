@@ -146,6 +146,8 @@ Other options, as example:
 
 * ``chrome``
 * ``firefox``
+* ``desktop``
+* ``mobile``
 
 Configuring FixedUserAgent
 ---------------------------
