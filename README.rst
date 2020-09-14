@@ -125,8 +125,9 @@ Parameter: ``FAKE_USERAGENT_RANDOM_UA_TYPE`` defaulting to ``random``.
 
 Other options, as example: 
 
-* ``firefox`` to mimic only firefox browsers
-* ``desktop`` or ``mobile`` values to send desktop or mobile strings respectively.
+* ``firefox`` to mimic only Firefox browsers
+* ``msie`` to mimic Internet Explorer only
+* etc.
 
 You can also set the ``FAKEUSERAGENT_FALLBACK`` option, which is a ``fake-useragent`` specific fallback. For example:
 
