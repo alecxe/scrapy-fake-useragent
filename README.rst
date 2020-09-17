@@ -146,8 +146,8 @@ Other options, as example:
 
 * ``chrome``
 * ``firefox``
-* ``desktop``
-* ``mobile``
+* ``safari``
+* etc. (please refer to `Faker UserAgent provider documentation <https://faker.readthedocs.io/en/master/providers/faker.providers.user_agent.html>`_ for the available options)
 
 Configuring FixedUserAgent
 ---------------------------
