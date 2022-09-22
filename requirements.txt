@@ -1,2 +1,2 @@
-fake-useragent
+git+https://github.com/danger89/fake-useragent.git
 faker>=4.1.1
