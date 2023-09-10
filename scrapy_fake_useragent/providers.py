@@ -56,7 +56,7 @@ class FakeUserAgentProvider(BaseProvider):
         self._ua_type = settings.get('FAKE_USERAGENT_RANDOM_UA_TYPE',
                                      self.DEFAULT_UA_TYPE)
 
-        fallback = settings.get('FAKEUSERAGENT_FALLBACK', None)
+        fallback = settings.get('FAKEUSERAGENT_FALLBACK', '')
         self._ua = fake_useragent.UserAgent(fallback=fallback)
 
     def get_random_ua(self):
